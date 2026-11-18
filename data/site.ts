@@ -12,7 +12,7 @@ export const siteConfig = {
    * Deployed homepage URL for the DKM portfolio.
    * Used by Project 3 "Live Demo". Update this after deploying.
    */
-  siteUrl: "https://dkm-portfolio.vercel.app",
+  siteUrl: "https://dkm-portfolio-two.vercel.app",
 
   description:
     "Explore the portfolio of Dustin Kirk Manalastas, an aspiring web developer passionate about full-stack development, modern web technologies, and building innovative digital experiences.",
