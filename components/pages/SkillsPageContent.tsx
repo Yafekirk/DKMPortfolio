@@ -17,8 +17,11 @@ export function SkillsPageContent() {
 
         <div className="space-y-12">
           {skillCategories.map((category) => {
-            const categorySkills = skills.filter(
-              (skill) => skill.category === category,
+            const categorySkills = skills.filter((skill) =>
+              category === "Tools & Platforms"
+                ? skill.category === "Tools & Platforms" ||
+                  skill.category === "IDE"
+                : skill.category === category,
             );
 
             return (

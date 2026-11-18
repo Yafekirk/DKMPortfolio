@@ -3,6 +3,7 @@ export type SkillCategory =
   | "Backend Development"
   | "Database Management"
   | "Tools & Platforms"
+  | "IDE"
   | "AI-Assisted Development";
 
 export type Skill = {
@@ -93,14 +94,21 @@ export const skills: Skill[] = [
     description: "Primary editor for day-to-day development workflows.",
   },
   {
-    name: "Figma",
+    name: "Canva",
     category: "Tools & Platforms",
-    description: "Interface design, prototyping, and visual planning.",
+    description:
+      "Visual design, presentations, content creation, and creative assets.",
   },
   {
     name: "Vercel",
     category: "Tools & Platforms",
     description: "Deployment and hosting for modern frontend applications.",
+  },
+  {
+    name: "Cursor",
+    category: "IDE",
+    description:
+      "AI-powered code editor for development, debugging, and AI-assisted coding workflows.",
   },
   {
     name: "AI Coding Assistants",
