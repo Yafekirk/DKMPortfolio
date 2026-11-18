@@ -19,10 +19,15 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
+*.log
+tmp-*
+tmp-*.json
 
 # debug
 npm-debug.log*
@@ -30,8 +35,14 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files — keep .env.example commit-able
+.env
+.env.*
+!.env.example
+
+# local scratch / duplicate assets at repo root
+/Dustin_casual.png
+/Dustin_Formal.png
 
 # vercel
 .vercel
@@ -39,3 +50,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

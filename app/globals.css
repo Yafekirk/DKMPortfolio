@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8faf9;
+  --background-secondary: #ffffff;
+  --card: #ffffff;
+  --card-elevated: #f0fdf4;
+  --accent: #16a34a;
+  --accent-hover: #15803d;
+  --accent-secondary: #22c55e;
+  --accent-highlight: #166534;
+  --foreground: #111827;
+  --foreground-secondary: #4b5563;
+  --foreground-muted: #6b7280;
+  --border: #d1d5db;
+  --glow: rgba(22, 163, 74, 0.18);
+  --input: #ffffff;
+  --ring: #16a34a;
+  --gradient: linear-gradient(135deg, #16a34a, #22c55e, #86efac);
+  --shadow-soft: 0 10px 40px rgba(22, 163, 74, 0.1);
+}
+
+.dark {
+  --background: #0a0f0b;
+  --background-secondary: #111a13;
+  --card: #17231a;
+  --card-elevated: #1c2a20;
+  --accent: #22c55e;
+  --accent-hover: #16a34a;
+  --accent-secondary: #4ade80;
+  --accent-highlight: #86efac;
+  --foreground: #ffffff;
+  --foreground-secondary: #a1a1aa;
+  --foreground-muted: #71717a;
+  --border: #26352a;
+  --glow: rgba(34, 197, 94, 0.25);
+  --input: #111a13;
+  --ring: #22c55e;
+  --gradient: linear-gradient(135deg, #22c55e, #4ade80, #86efac);
+  --shadow-soft: 0 10px 40px rgba(34, 197, 94, 0.15);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-card: var(--card);
+  --color-card-elevated: var(--card-elevated);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-highlight: var(--accent-highlight);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-glow: var(--glow);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+
+/* Invader Zim Gir Link Select — fine pointers only (skip touch devices) */
+@media (hover: hover) and (pointer: fine) {
+  *,
+  *::before,
+  *::after {
+    cursor: url("https://cdn.cursors-4u.net/previews/invader-zim-gir-set-gir-select-61908310-64.webp")
+        20 16,
+      auto !important;
+  }
+
+  a,
+  button,
+  [role="button"],
+  [role="link"],
+  [role="menuitem"],
+  [role="tab"],
+  [role="option"],
+  [role="switch"],
+  [role="checkbox"],
+  [role="radio"],
+  summary,
+  label[for],
+  select,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="file"],
+  input[type="image"],
+  .cursor-pointer {
+    cursor: url("https://cdn.cursors-4u.net/previews/invader-zim-gir-set-gir-select-61908310-64.webp")
+        20 16,
+      pointer !important;
+  }
+
+  input:not([type="button"]):not([type="submit"]):not([type="reset"]):not(
+      [type="checkbox"]
+    ):not([type="radio"]):not([type="file"]):not([type="image"]),
+  textarea,
+  [contenteditable="true"] {
+    cursor: url("https://cdn.cursors-4u.net/previews/invader-zim-gir-set-gir-select-61908310-64.webp")
+        20 16,
+      text !important;
+  }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--foreground);
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-orb {
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+}
+
+.glass {
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
